@@ -1,0 +1,132 @@
+object Form1: TForm1
+  Left = 235
+  Height = 506
+  Top = 104
+  Width = 877
+  Caption = 'rTest v0.1'
+  ClientHeight = 506
+  ClientWidth = 877
+  OnCreate = FormCreate
+  LCLVersion = '2.0.0.3'
+  object RegexInput: TEdit
+    AnchorSideLeft.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 5
+    Height = 21
+    Top = 8
+    Width = 867
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 5
+    BorderSpacing.Right = 5
+    OnChange = RegexInputChange
+    TabOrder = 0
+    Text = 'Hello (.*?)!'
+  end
+  object RegexSourceText: TMemo
+    AnchorSideLeft.Control = Owner
+    AnchorSideRight.Control = PanelSplitter
+    AnchorSideBottom.Control = Legend
+    Left = 5
+    Height = 336
+    Top = 64
+    Width = 629
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Left = 5
+    BorderSpacing.Bottom = 5
+    Lines.Strings = (
+      'Hello world! Hello pascal!'
+    )
+    OnChange = RegexSourceTextChange
+    TabOrder = 1
+  end
+  object MatchBox: TListBox
+    AnchorSideLeft.Control = PanelSplitter
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = RegexSourceText
+    AnchorSideBottom.Side = asrBottom
+    Left = 639
+    Height = 336
+    Top = 64
+    Width = 233
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Right = 5
+    ItemHeight = 0
+    TabOrder = 2
+  end
+  object ErrorLabel: TLabel
+    AnchorSideLeft.Control = RegexSourceText
+    Left = 10
+    Height = 16
+    Top = 40
+    Width = 63
+    BorderSpacing.Left = 5
+    Caption = 'ErrorLabel'
+    ParentColor = False
+  end
+  object PanelSplitter: TSplitter
+    AnchorSideLeft.Control = RegexSourceText
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = RegexSourceText
+    AnchorSideBottom.Control = RegexSourceText
+    AnchorSideBottom.Side = asrBottom
+    Left = 634
+    Height = 336
+    Top = 64
+    Width = 5
+    Align = alNone
+    Anchors = [akTop, akBottom]
+    AutoSnap = False
+  end
+  object Legend: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 5
+    Height = 96
+    Top = 405
+    Width = 321
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Left = 5
+    BorderSpacing.Bottom = 5
+    Caption = '* zero or more ("greedy"), similar to {0,}'#10'+ one or more ("greedy"), similar to {1,}'#10'? zero or one ("greedy"), similar to {0,1}'#10'{n} exactly n times ("greedy")'#10'{n,} at least n times ("greedy")'#10'{n,m} at least n but not more than m times ("greedy")'
+    ParentColor = False
+  end
+  object MatchesLabel: TLabel
+    AnchorSideLeft.Control = MatchBox
+    Left = 644
+    Height = 16
+    Top = 48
+    Width = 52
+    BorderSpacing.Left = 5
+    Caption = 'Matches'
+    ParentColor = False
+  end
+  object GithubButton: TButton
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 797
+    Height = 25
+    Top = 32
+    Width = 75
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 5
+    Caption = 'GitHub'
+    OnClick = GithubButtonClick
+    TabOrder = 4
+  end
+  object Legend2: TLabel
+    AnchorSideLeft.Control = Legend
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Legend
+    Left = 336
+    Height = 96
+    Top = 405
+    Width = 357
+    BorderSpacing.Left = 10
+    Caption = '*? zero or more ("non-greedy"), similar to {0,}?'#10'+? one or more ("non-greedy"), similar to {1,}?'#10'?? zero or one ("non-greedy"), similar to {0,1}?'#10'{n}? exactly n times ("non-greedy")'#10'{n,}? at least n times ("non-greedy")'#10'{n,m}? at least n but not more than m times ("non-greedy")'
+    ParentColor = False
+  end
+end
