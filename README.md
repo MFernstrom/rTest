@@ -1,5 +1,5 @@
 # rTest
-GUI tool to play with Lazarus RegExpr
+GUI tool for testing Lazarus RegExpr expressions and matches.
 
 <img src="screenshot.png" />
 
