@@ -6,14 +6,20 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
-  RegExpr, LCLIntf;
+  RegExpr, LCLIntf, SynEdit;
 
 type
 
-  { TForm1 }
+  { TrTestForm }
 
-  TForm1 = class(TForm)
-    GithubButton: TButton;
+  TrTestForm = class(TForm)
+    FlagsLabel: TLabel;
+    DocumentationLabel: TLabel;
+    ModI: TCheckBox;
+    ModS: TCheckBox;
+    ModG: TCheckBox;
+    ModM: TCheckBox;
+    MatchesCountLabel: TLabel;
     Legend2: TLabel;
     RegexInput: TEdit;
     ErrorLabel: TLabel;
@@ -22,7 +28,8 @@ type
     MatchBox: TListBox;
     RegexSourceText: TMemo;
     PanelSplitter: TSplitter;
-    procedure GithubButtonClick(Sender: TObject);
+    procedure DocumentationLabelClick(Sender: TObject);
+    procedure ModHasChanged(Sender: TObject);
     procedure RegexInputChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure RegexSourceTextChange(Sender: TObject);
@@ -34,32 +41,40 @@ type
   end;
 
 var
-  Form1: TForm1;
+  rTestForm: TrTestForm;
   re: TRegExpr;
 
 implementation
 
 {$R *.lfm}
 
-{ TForm1 }
+{ TrTestForm }
 
-procedure TForm1.processRegex;
+procedure TrTestForm.processRegex;
 begin
   ErrorLabel.Caption := '';
   MatchBox.Clear;
 
+  MatchesCountLabel.Caption := '0';
+
   try
     try
       re := TRegExpr.Create(trim(RegexInput.Caption));
+      re.ModifierI := ModI.Checked;
+      re.ModifierS := ModS.Checked;
+      re.ModifierG := ModG.Checked;
+      re.ModifierM := ModM.Checked;
+
       if re.Exec(trim(RegexSourceText.Text)) then begin
         // Add the first match
         MatchBox.AddItem(re.Match[1], nil);
 
         // Add subsequent matches
-        while re.ExecNext do
+        while re.ExecNext do begin
           MatchBox.AddItem(re.Match[1], nil);
-
+        end;
       end;
+      MatchesCountLabel.Caption := IntToStr(MatchBox.Count);
     finally
       re.Free;
     end;
@@ -69,23 +84,29 @@ begin
   end;
 end;
 
-procedure TForm1.RegexInputChange(Sender: TObject);
+procedure TrTestForm.RegexInputChange(Sender: TObject);
 begin
   processRegex;
 end;
 
-procedure TForm1.GithubButtonClick(Sender: TObject);
+procedure TrTestForm.DocumentationLabelClick(Sender: TObject);
 begin
   OpenURL('https://github.com/MFernstrom/rTest');
 end;
 
-procedure TForm1.FormCreate(Sender: TObject);
+procedure TrTestForm.ModHasChanged(Sender: TObject);
 begin
-  ErrorLabel.Caption := '';
   processRegex;
 end;
 
-procedure TForm1.RegexSourceTextChange(Sender: TObject);
+procedure TrTestForm.FormCreate(Sender: TObject);
+begin
+  ErrorLabel.Caption := '';
+  MatchesCountLabel.Caption := '0';
+  processRegex;
+end;
+
+procedure TrTestForm.RegexSourceTextChange(Sender: TObject);
 begin
   processRegex;
 end;
