@@ -29,6 +29,7 @@ type
     RegexSourceText: TMemo;
     PanelSplitter: TSplitter;
     procedure DocumentationLabelClick(Sender: TObject);
+    procedure MatchBoxSelectionChange(Sender: TObject; User: boolean);
     procedure ModHasChanged(Sender: TObject);
     procedure RegexInputChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -43,6 +44,7 @@ type
 var
   rTestForm: TrTestForm;
   re: TRegExpr;
+  matchTrack: array of integer;
 
 implementation
 
@@ -51,11 +53,15 @@ implementation
 { TrTestForm }
 
 procedure TrTestForm.processRegex;
+var
+  counter: Integer;
 begin
   ErrorLabel.Caption := '';
   MatchBox.Clear;
 
   MatchesCountLabel.Caption := '0';
+
+  setLength(matchTrack, 1);
 
   try
     try
@@ -65,13 +71,22 @@ begin
       re.ModifierG := ModG.Checked;
       re.ModifierM := ModM.Checked;
 
+      counter := 1;
+
       if re.Exec(trim(RegexSourceText.Text)) then begin
         // Add the first match
-        MatchBox.AddItem(re.Match[1], nil);
-
-        // Add subsequent matches
-        while re.ExecNext do begin
+        if length(re.Match[1]) > 0 then begin
           MatchBox.AddItem(re.Match[1], nil);
+
+          matchTrack[0] := re.MatchPos[1];
+
+          // Add subsequent matchTrack
+          while re.ExecNext do begin
+            MatchBox.AddItem(re.Match[1], nil);
+            setLength(matchTrack, counter+1);
+            matchTrack[counter] := re.MatchPos[1];
+            counter := counter + 1;
+          end;
         end;
       end;
       MatchesCountLabel.Caption := IntToStr(MatchBox.Count);
@@ -94,6 +109,18 @@ begin
   OpenURL('https://github.com/MFernstrom/rTest');
 end;
 
+procedure TrTestForm.MatchBoxSelectionChange(Sender: TObject; User: boolean);
+var
+  chosenText: String;
+begin
+  if MatchBox.ItemIndex > -1 then begin
+    chosenText := MatchBox.Items[MatchBox.ItemIndex];
+    RegexSourceText.SelStart := matchTrack[MatchBox.ItemIndex] -1;
+    RegexSourceText.SelLength := Length(chosenText);
+    RegexSourceText.SetFocus;
+  end;
+end;
+
 procedure TrTestForm.ModHasChanged(Sender: TObject);
 begin
   processRegex;
@@ -103,6 +130,7 @@ procedure TrTestForm.FormCreate(Sender: TObject);
 begin
   ErrorLabel.Caption := '';
   MatchesCountLabel.Caption := '0';
+  setlength(matchTrack,1);
   processRegex;
 end;
 

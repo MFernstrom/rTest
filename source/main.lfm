@@ -1,9 +1,9 @@
 object rTestForm: TrTestForm
-  Left = 233
+  Left = 132
   Height = 545
-  Top = 107
+  Top = 104
   Width = 737
-  Caption = 'rTest v0.2'
+  Caption = 'rTest v0.2.5'
   ClientHeight = 545
   ClientWidth = 737
   OnCreate = FormCreate
@@ -57,6 +57,7 @@ object rTestForm: TrTestForm
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Right = 5
     ItemHeight = 0
+    OnSelectionChange = MatchBoxSelectionChange
     TabOrder = 2
   end
   object ErrorLabel: TLabel

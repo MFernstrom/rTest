@@ -11,6 +11,8 @@
       <UseXPManifest Value="True"/>
       <XPManifest>
         <DpiAware Value="True"/>
+        <TextName Value="MarcusFernstrom.rTest"/>
+        <TextDesc Value="RegExpr GUI tool"/>
       </XPManifest>
       <Icon Value="0"/>
     </General>
@@ -116,6 +118,9 @@
     <CodeGeneration>
       <TargetCPU Value="x86_64"/>
       <TargetOS Value="darwin"/>
+      <Optimizations>
+        <OptimizationLevel Value="3"/>
+      </Optimizations>
     </CodeGeneration>
     <Linking>
       <Debugging>
