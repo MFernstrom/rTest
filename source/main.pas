@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
-  RegExpr, LCLIntf, SynEdit;
+  RegExpr, LCLIntf;
 
 type
 

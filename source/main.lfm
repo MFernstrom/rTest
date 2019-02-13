@@ -1,5 +1,5 @@
 object rTestForm: TrTestForm
-  Left = 132
+  Left = 247
   Height = 545
   Top = 104
   Width = 737
@@ -7,7 +7,7 @@ object rTestForm: TrTestForm
   ClientHeight = 545
   ClientWidth = 737
   OnCreate = FormCreate
-  LCLVersion = '2.0.0.3'
+  LCLVersion = '2.0.1.0'
   object RegexInput: TEdit
     AnchorSideLeft.Control = Owner
     AnchorSideRight.Control = Owner
