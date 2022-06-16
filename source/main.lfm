@@ -1,21 +1,21 @@
 object rTestForm: TrTestForm
-  Left = 247
-  Height = 545
-  Top = 104
-  Width = 737
-  Caption = 'rTest v0.2.5'
-  ClientHeight = 545
-  ClientWidth = 737
+  Left = 307
+  Height = 542
+  Top = 183
+  Width = 816
+  Caption = 'rTest v0.3'
+  ClientHeight = 542
+  ClientWidth = 816
   OnCreate = FormCreate
-  LCLVersion = '2.0.1.0'
+  LCLVersion = '2.2.0.4'
   object RegexInput: TEdit
     AnchorSideLeft.Control = Owner
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 5
-    Height = 21
+    Height = 23
     Top = 8
-    Width = 727
+    Width = 806
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 5
     BorderSpacing.Right = 5
@@ -28,9 +28,9 @@ object rTestForm: TrTestForm
     AnchorSideRight.Control = PanelSplitter
     AnchorSideBottom.Control = Legend
     Left = 5
-    Height = 337
+    Height = 340
     Top = 72
-    Width = 584
+    Width = 647
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Left = 5
     BorderSpacing.Bottom = 20
@@ -50,14 +50,15 @@ object rTestForm: TrTestForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = RegexSourceText
     AnchorSideBottom.Side = asrBottom
-    Left = 592
-    Height = 337
+    Left = 655
+    Height = 340
     Top = 72
-    Width = 140
+    Width = 156
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Right = 5
     ItemHeight = 0
     OnSelectionChange = MatchBoxSelectionChange
+    PopupMenu = MatchBoxPopupMenu
     TabOrder = 2
   end
   object ErrorLabel: TLabel
@@ -66,13 +67,12 @@ object rTestForm: TrTestForm
     AnchorSideTop.Side = asrBottom
     AnchorSideBottom.Control = RegexSourceText
     Left = 10
-    Height = 16
-    Top = 34
-    Width = 63
+    Height = 15
+    Top = 36
+    Width = 53
     BorderSpacing.Left = 5
     BorderSpacing.Top = 5
     Caption = 'ErrorLabel'
-    ParentColor = False
   end
   object PanelSplitter: TSplitter
     AnchorSideLeft.Control = RegexSourceText
@@ -80,8 +80,8 @@ object rTestForm: TrTestForm
     AnchorSideTop.Control = RegexSourceText
     AnchorSideBottom.Control = RegexSourceText
     AnchorSideBottom.Side = asrBottom
-    Left = 589
-    Height = 337
+    Left = 652
+    Height = 340
     Top = 72
     Width = 3
     Align = alNone
@@ -93,59 +93,55 @@ object rTestForm: TrTestForm
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 20
-    Height = 96
-    Top = 429
-    Width = 321
+    Height = 90
+    Top = 432
+    Width = 282
     Anchors = [akLeft, akBottom]
     BorderSpacing.Left = 20
     BorderSpacing.Bottom = 20
     Caption = '* zero or more ("greedy"), similar to {0,}'#10'+ one or more ("greedy"), similar to {1,}'#10'? zero or one ("greedy"), similar to {0,1}'#10'{n} exactly n times ("greedy")'#10'{n,} at least n times ("greedy")'#10'{n,m} at least n but not more than m times ("greedy")'
-    ParentColor = False
   end
   object MatchesLabel: TLabel
     AnchorSideLeft.Control = MatchBox
     AnchorSideTop.Control = MatchBox
     AnchorSideBottom.Control = MatchBox
-    Left = 597
-    Height = 16
-    Top = 56
-    Width = 56
+    Left = 660
+    Height = 15
+    Top = 57
+    Width = 48
     Anchors = [akLeft, akBottom]
     BorderSpacing.Left = 5
     Caption = 'Matches:'
-    ParentColor = False
   end
   object Legend2: TLabel
     AnchorSideLeft.Control = Legend
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = Legend
-    Left = 351
-    Height = 96
-    Top = 429
-    Width = 357
+    Left = 312
+    Height = 90
+    Top = 432
+    Width = 313
     BorderSpacing.Left = 10
     Caption = '*? zero or more ("non-greedy"), similar to {0,}?'#10'+? one or more ("non-greedy"), similar to {1,}?'#10'?? zero or one ("non-greedy"), similar to {0,1}?'#10'{n}? exactly n times ("non-greedy")'#10'{n,}? at least n times ("non-greedy")'#10'{n,m}? at least n but not more than m times ("non-greedy")'
-    ParentColor = False
   end
   object MatchesCountLabel: TLabel
     AnchorSideLeft.Control = MatchesLabel
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = MatchesLabel
-    Left = 658
-    Height = 16
-    Top = 56
-    Width = 121
+    Left = 713
+    Height = 15
+    Top = 57
+    Width = 106
     BorderSpacing.Left = 5
     Caption = 'MatchesCountLabel'
-    ParentColor = False
   end
   object ModI: TCheckBox
     AnchorSideTop.Control = FlagsLabel
     Left = 48
-    Height = 18
+    Height = 19
     Hint = 'Case insensitive'
-    Top = 51
-    Width = 29
+    Top = 52
+    Width = 28
     Caption = '/i'
     OnChange = ModHasChanged
     ParentShowHint = False
@@ -156,11 +152,11 @@ object rTestForm: TrTestForm
     AnchorSideLeft.Control = ModI
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = ModI
-    Left = 87
-    Height = 18
+    Left = 86
+    Height = 19
     Hint = '. works as any char (else as [^\n])'
-    Top = 51
-    Width = 33
+    Top = 52
+    Width = 30
     BorderSpacing.Left = 10
     Caption = '/s'
     OnChange = ModHasChanged
@@ -172,11 +168,11 @@ object rTestForm: TrTestForm
     AnchorSideLeft.Control = ModS
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = ModS
-    Left = 130
-    Height = 18
+    Left = 126
+    Height = 19
     Hint = 'Greedy. All ''*'' works as ''*?'', all ''+'' as ''+?'' and so on'
-    Top = 51
-    Width = 34
+    Top = 52
+    Width = 32
     BorderSpacing.Left = 10
     Caption = '/g'
     OnChange = ModHasChanged
@@ -188,11 +184,11 @@ object rTestForm: TrTestForm
     AnchorSideLeft.Control = ModG
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = ModG
-    Left = 174
-    Height = 18
+    Left = 168
+    Height = 19
     Hint = 'Multiple lines. ^ and $ will match across lines.'
-    Top = 51
-    Width = 37
+    Top = 52
+    Width = 36
     BorderSpacing.Left = 10
     Caption = '/m'
     OnChange = ModHasChanged
@@ -203,23 +199,46 @@ object rTestForm: TrTestForm
   object FlagsLabel: TLabel
     AnchorSideBottom.Control = RegexSourceText
     Left = 8
-    Height = 16
-    Top = 51
-    Width = 32
+    Height = 15
+    Top = 52
+    Width = 27
     Anchors = [akLeft, akBottom]
     BorderSpacing.Bottom = 5
     Caption = 'Flags'
-    ParentColor = False
   end
   object DocumentationLabel: TLabel
     Left = 224
-    Height = 16
+    Height = 15
     Top = 51
-    Width = 92
+    Width = 83
     Caption = 'Documentation'
     Font.Style = [fsUnderline]
-    ParentColor = False
     ParentFont = False
     OnClick = DocumentationLabelClick
+  end
+  object Button1: TButton
+    AnchorSideLeft.Control = Legend2
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Legend2
+    AnchorSideBottom.Control = Legend2
+    AnchorSideBottom.Side = asrBottom
+    Left = 652
+    Height = 25
+    Top = 497
+    Width = 140
+    Anchors = [akLeft, akBottom]
+    AutoSize = True
+    BorderSpacing.Left = 27
+    Caption = 'Generate source code'
+    OnClick = Button1Click
+    TabOrder = 8
+  end
+  object MatchBoxPopupMenu: TPopupMenu
+    Left = 720
+    Top = 352
+    object MenuItem1: TMenuItem
+      Caption = 'Copy'
+      OnClick = MenuItem1Click
+    end
   end
 end

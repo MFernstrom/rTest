@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectOptions>
-    <Version Value="11"/>
+    <Version Value="12"/>
     <General>
+      <Flags>
+        <CompatibilityMode Value="True"/>
+      </Flags>
       <SessionStorage Value="InProjectDir"/>
-      <MainUnit Value="0"/>
       <Title Value="rTest"/>
       <Scaled Value="True"/>
       <ResourceType Value="res"/>
@@ -16,6 +18,9 @@
       </XPManifest>
       <Icon Value="0"/>
     </General>
+    <MacroValues Count="1">
+      <Macro1 Name="LCLWidgetType" Value="cocoa"/>
+    </MacroValues>
     <BuildModes Count="3">
       <Item1 Name="OSX" Default="True"/>
       <Item2 Name="Windows">
@@ -70,23 +75,24 @@
           </Linking>
         </CompilerOptions>
       </Item3>
+      <SharedMatrixOptions Count="1">
+        <Item1 ID="871405005005" Modes="OSX" Type="IDEMacro" MacroName="LCLWidgetType" Value="cocoa"/>
+      </SharedMatrixOptions>
     </BuildModes>
     <PublishOptions>
       <Version Value="2"/>
-      <DestinationDirectory Value="/Users/marcusfernstrom/Documents/Coding/Lazarus/100Days100Programs/12 rTest/repo/source"/>
       <CompressFinally Value="False"/>
       <UseFileFilters Value="True"/>
     </PublishOptions>
     <RunParams>
       <FormatVersion Value="2"/>
-      <Modes Count="0"/>
     </RunParams>
     <RequiredPackages Count="1">
       <Item1>
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="2">
+    <Units Count="3">
       <Unit0>
         <Filename Value="rTest.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -98,6 +104,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit1>
+      <Unit2>
+        <Filename Value="generatedcode.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="generatedCode"/>
+      </Unit2>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
