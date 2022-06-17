@@ -13,7 +13,7 @@ type
   { TrTestForm }
 
   TrTestForm = class(TForm)
-    Button1: TButton;
+    GenerateCodeButton: TButton;
     FlagsLabel: TLabel;
     DocumentationLabel: TLabel;
     MenuItem1: TMenuItem;
@@ -31,7 +31,7 @@ type
     MatchBox: TListBox;
     RegexSourceText: TMemo;
     PanelSplitter: TSplitter;
-    procedure Button1Click(Sender: TObject);
+    procedure GenerateCodeButtonClick(Sender: TObject);
     procedure DocumentationLabelClick(Sender: TObject);
     procedure MatchBoxSelectionChange(Sender: TObject; User: boolean);
     procedure MenuItem1Click(Sender: TObject);
@@ -114,7 +114,7 @@ begin
   OpenURL('https://github.com/MFernstrom/rTest');
 end;
 
-procedure TrTestForm.Button1Click(Sender: TObject);
+procedure TrTestForm.GenerateCodeButtonClick(Sender: TObject);
 begin
   generatedCodeForm.Memo1.Clear;
 
@@ -181,7 +181,9 @@ begin
   MatchesCountLabel.Caption := '0';
   setlength(matchTrack,1);
   processRegex;
-  //generatedCodeForm.Hide;
+
+  // Adjust size to show button, as all platforms do not have the same size components
+  rTestForm.Width := GenerateCodeButton.Left + GenerateCodeButton.Width + 27;
 end;
 
 procedure TrTestForm.RegexSourceTextChange(Sender: TObject);

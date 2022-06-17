@@ -1,7 +1,8 @@
 # rTest
-GUI tool for testing Lazarus RegExpr expressions and matches.
+GUI tool for testing and generating code for Lazarus RegExpr expressions and matches.
 
-<img src="screenshot025.png" />
+<img src="screenshot026.png" />
 
-# More info
-https://regexpstudio.com/en/regexp_syntax.html
+Automatic code generation
+
+<img src="screenshot027.png" />

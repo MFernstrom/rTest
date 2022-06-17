@@ -2,10 +2,10 @@ object rTestForm: TrTestForm
   Left = 307
   Height = 542
   Top = 183
-  Width = 816
+  Width = 729
   Caption = 'rTest v0.3'
   ClientHeight = 542
-  ClientWidth = 816
+  ClientWidth = 729
   OnCreate = FormCreate
   LCLVersion = '2.2.0.4'
   object RegexInput: TEdit
@@ -15,7 +15,7 @@ object rTestForm: TrTestForm
     Left = 5
     Height = 23
     Top = 8
-    Width = 806
+    Width = 719
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 5
     BorderSpacing.Right = 5
@@ -30,7 +30,7 @@ object rTestForm: TrTestForm
     Left = 5
     Height = 340
     Top = 72
-    Width = 647
+    Width = 577
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Left = 5
     BorderSpacing.Bottom = 20
@@ -50,10 +50,10 @@ object rTestForm: TrTestForm
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = RegexSourceText
     AnchorSideBottom.Side = asrBottom
-    Left = 655
+    Left = 585
     Height = 340
     Top = 72
-    Width = 156
+    Width = 139
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Right = 5
     ItemHeight = 0
@@ -80,7 +80,7 @@ object rTestForm: TrTestForm
     AnchorSideTop.Control = RegexSourceText
     AnchorSideBottom.Control = RegexSourceText
     AnchorSideBottom.Side = asrBottom
-    Left = 652
+    Left = 582
     Height = 340
     Top = 72
     Width = 3
@@ -105,7 +105,7 @@ object rTestForm: TrTestForm
     AnchorSideLeft.Control = MatchBox
     AnchorSideTop.Control = MatchBox
     AnchorSideBottom.Control = MatchBox
-    Left = 660
+    Left = 590
     Height = 15
     Top = 57
     Width = 48
@@ -128,7 +128,7 @@ object rTestForm: TrTestForm
     AnchorSideLeft.Control = MatchesLabel
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = MatchesLabel
-    Left = 713
+    Left = 643
     Height = 15
     Top = 57
     Width = 106
@@ -216,7 +216,7 @@ object rTestForm: TrTestForm
     ParentFont = False
     OnClick = DocumentationLabelClick
   end
-  object Button1: TButton
+  object GenerateCodeButton: TButton
     AnchorSideLeft.Control = Legend2
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = Legend2
@@ -230,7 +230,7 @@ object rTestForm: TrTestForm
     AutoSize = True
     BorderSpacing.Left = 27
     Caption = 'Generate source code'
-    OnClick = Button1Click
+    OnClick = GenerateCodeButtonClick
     TabOrder = 8
   end
   object MatchBoxPopupMenu: TPopupMenu
